@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from "@/components/ui/button"
 
 export default function Card({username, btntext="visit me"}) {
     return (
@@ -13,9 +14,9 @@ export default function Card({username, btntext="visit me"}) {
         <p className="text-gray-600 mt-2">
             This is a simple card component built using Tailwind CSS.
         </p>
-        <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+        <Button>
             {btntext}
-        </button>
+        </Button>
         </div>
     </div>
     );
