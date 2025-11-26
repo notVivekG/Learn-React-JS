@@ -11,6 +11,7 @@ function App() {
     if(counter<20){
       console.log("counter increased to ", counter);
       setCounter(counter+1)
+      // setCounter(counter => counter+1)
     }
     else{console.log("value cannot be more than 20")}
   }
