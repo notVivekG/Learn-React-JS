@@ -1,24 +1,66 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeTodo } from '../features/todo/todoSlice'
+import { removeTodo, updateTodo } from '../features/todo/todoSlice'
 
 function Todos() {
     const todos = useSelector((state) => state.todos);
     const dispatch = useDispatch();
+    const [editableId, setEditableId] = useState(null);
+    const [editText, setEditText] = useState('');
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        if (editableId !== null && inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [editableId]);
+
+    function editTodo(id){
+        dispatch(updateTodo({ id, text: editText }));
+        setEditableId(null);
+        setEditText('');
+    }
+
+    function startEdit(todo) {
+        setEditableId(todo.id);
+        setEditText(todo.text);
+    }
 
     return (
-        <>
-            <div>Todos</div>
+        <div className="w-full max-w-2xl mx-auto px-4">
+            <div className="text-2xl font-bold mb-4 text-white">Todos</div>
             <ul className="list-none">
             {todos.map((todo) => (
                 <li
-                className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
+                className="mt-4 flex items-center bg-zinc-800 px-4 py-2 rounded gap-2"
                 key={todo.id}
                 >
-                <div className="text-white">{todo.text}</div>
+                <input 
+                    ref={editableId === todo.id ? inputRef : null}
+                    className={`flex-1 text-white bg-transparent border-none outline-none px-2 py-1 rounded transition-all ${
+                        editableId === todo.id 
+                            ? 'bg-zinc-700 ring-2 ring-blue-500 shadow-lg' 
+                            : 'bg-transparent'
+                    }`}
+                    value={editableId === todo.id ? editText : todo.text}
+                    onChange={(e) => setEditText(e.target.value)}
+                    readOnly={editableId !== todo.id}
+                />
+                <button 
+                onClick={() => {
+                    if(editableId === todo.id){
+                        editTodo(todo.id)
+                    } else {
+                        startEdit(todo)
+                    }
+                }}
+                className="text-xl hover:scale-110 transition-transform flex-shrink-0"
+                >
+                    {editableId === todo.id ? "📁" : "✏️"}
+                </button>
                 <button
                     onClick={() => dispatch(removeTodo(todo.id))}
-                    className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
+                    className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md flex-shrink-0"
                 >
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +80,7 @@ function Todos() {
                 </li>
             ))}
             </ul>
-        </>
+        </div>
     );
 }
 
