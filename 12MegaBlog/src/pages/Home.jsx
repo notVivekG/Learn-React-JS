@@ -19,20 +19,16 @@ function Home() {
         return <p className='text-center py-8'>Login to read Posts</p>;
     }
     return (
-    <div className='w-full py-8'>
         <Container>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-                {
-                    posts.map((post) => (
-                        <div key={post.$id} className='p-2 w-1/4'>
-                            <PostCard {...post} />
-                        </div>
-                    ))
-                }
-            </div>
+        <h1 className="text-2xl font-bold mb-6">Latest Posts</h1>
+
+        <div className="flex flex-wrap gap-6 justify-start">
+            {posts.map((post) => (
+            <PostCard key={post.$id} {...post} />
+            ))}
+        </div>
         </Container>
-    </div>
-    )
+    );
 }
 
 export default Home
