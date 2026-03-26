@@ -19,8 +19,7 @@ function App() {
       if (charAllowed) str += "!@#$%^&*-_+=[]{}~"
 
       for (let i = 0; i < length; i++) {
-        let char = Math.floor(Math.random() * str.length + 1)
-        pass += str.charAt(char)
+        pass += str[Math.floor(Math.random() * str.length)]
       }
 
       setPassword(pass)
@@ -31,7 +30,7 @@ function App() {
   const copyPasswordToClipboard = useCallback(
     () => {
       passwordRef.current?.select();
-      passwordRef.current?.setSelectionRange(0, 20)
+      passwordRef.current?.setSelectionRange(0, password.length);
       window.navigator.clipboard.writeText(password)
     },
     [password],
@@ -71,14 +70,14 @@ function App() {
             max={100}
             value={length}
             className='cursor-pointer'
-            onChange={(e) => {setLength(e.target.value)}}
+            onChange={(e) => {setLength(Number(e.target.value))}}
             />
             <label className='text-lg font-medium '>Length: {length}</label>
           </div>
           <div className='flex items-center gap-x-1'>
             <input 
             type="checkbox" 
-            defaultChecked={numberAllowed}
+            checked={numberAllowed}
             id="numberInput"
             onChange={() => {
               setNumberAllowed((prev) => !prev);
@@ -89,10 +88,10 @@ function App() {
           <div className='flex items-center gap-x-1'>
             <input 
             type="checkbox" 
-            defaultChecked={charAllowed}
+            checked={charAllowed}
             id="charInput"
             onChange={() => {
-              setNumberAllowed((prev) => !prev);
+              setCharAllowed((prev) => !prev);
             }}
             />
             <label htmlFor="charInput">Characters</label>
