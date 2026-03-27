@@ -14,16 +14,6 @@ export class Service {
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
 
-        // 🔍 QUICK DEBUG (TEMPORARY)
-        const account = new Account(this.client);
-        account
-        .get()
-        .then((user) => {
-            console.log("✅ Logged in user:", user.email);
-        })
-        .catch((err) => {
-            console.log("❌ User NOT logged in");
-        });
     }
 
     // Create a new post / review
@@ -56,9 +46,9 @@ export class Service {
             reviewerName,
             },
             permissions: [
-            Permission.read(Role.any()), // ✅ anyone can read public reviews
-            Permission.update(Role.user(userId)), // ✅ owner can update
-            Permission.delete(Role.user(userId)), // ✅ owner can delete
+            Permission.read(Role.any()), 
+            Permission.update(Role.user(userId)), 
+            Permission.delete(Role.user(userId)), 
             ],
         });
         } catch (error) {

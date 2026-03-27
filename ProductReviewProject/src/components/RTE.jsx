@@ -18,7 +18,7 @@ export default function RTE({name, control, label, defaultValue = ""}) {
     <div className='w-full'>
         {label && <label className='inline-block mb-1 text-sm pl-1'>{label}</label>}
         {!Editor ? (
-          <div className="text-sm text-slate-400 py-2">Loading editor</div>
+          <div className="text-sm text-slate-400 py-2">Loading editor</div>
         ) : (
           <Controller
               name={name || "content"}
