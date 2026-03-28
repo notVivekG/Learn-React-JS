@@ -9,8 +9,8 @@ function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
           <Logo width="140px" />
-          <p className="p-2 text-sm text-slate-500 whitespace-normal sm:whitespace-nowrap">
-            &copy; {new Date().getFullYear()} All rights reserved.
+          <p className="p-2 md:pl-8 text-sm text-slate-500 whitespace-normal sm:whitespace-nowrap">
+            &copy; 2026 All rights reserved.
           </p>
         </div>
 

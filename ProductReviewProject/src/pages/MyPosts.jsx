@@ -13,7 +13,7 @@ function MyPosts() {
     if (!userData) return;
 
     appwriteService.getPosts([
-      Query.equal("userId", userData.$id), // 🔥 ONLY USER POSTS
+      Query.equal("userId", userData.$id), //  ONLY USER POSTS
       Query.orderDesc("$createdAt"),
     ]).then((res) => {
       if (res) setPosts(res.documents);

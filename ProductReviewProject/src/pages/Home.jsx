@@ -115,8 +115,8 @@ function Home() {
             <section className="relative">
                 {/* Soft emerald glow orbs behind hero content */}
                 <>
-                    <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/15 rounded-full blur-3xl" />
-                    <div className="pointer-events-none absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-sky-400/15 rounded-full blur-3xl" />
+                    <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-emerald-500/15 rounded-full blur-3xl" />
+                    <div className="pointer-events-none absolute top-1/4 right-1/4 w-75 h-75 bg-sky-400/15 rounded-full blur-3xl" />
                 </>
                 <Container>
                     <div className="relative z-10 py-16 text-center">

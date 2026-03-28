@@ -59,12 +59,6 @@ export default function Post() {
                 className="rounded-xl max-h-72 w-full object-cover"
                 />
             )}
-
-            {isAuthor && (
-                <div className="absolute right-4 top-4 flex gap-2">
-                {/* Actions over image removed in favor of cleaner layout below title */}
-                </div>
-            )}
             </div>
             <div className="w-full mb-4">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">

@@ -25,7 +25,7 @@ function App() {
   return !loading ? (
     <div className='relative min-h-screen flex flex-wrap content-between bg-slate-950 text-slate-100 overflow-hidden'>
       {/* Global emerald/blue glow background similar to Home hero */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(56,189,248,0.12),_transparent_55%)] opacity-70" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_55%),radial-gradient(circle_at_bottom,rgba(56,189,248,0.12),transparent_55%)] opacity-70" />
 
       <div className='relative z-10 w-full block'>
         <Header />

@@ -62,6 +62,7 @@ function PostForm({ post }) {
     return () => clearInterval(interval);
   }, []);
 
+
   // Format remaining time as MM:SS
   const formatCooldown = (ms) => {
     const totalSeconds = Math.ceil(ms / 1000);
@@ -135,7 +136,7 @@ function PostForm({ post }) {
       }
 
       // derive reviewer name from auth or existing post
-      const reviewerName = post?.reviewerName || userData?.name || userData?.email || "Anonymous";
+      const reviewerName = post?.reviewerName || userData?.name || "Anonymous";
 
       /* ================= UPDATE POST ================= */
       if (post) {
